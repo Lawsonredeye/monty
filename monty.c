@@ -4,24 +4,25 @@ int main(int ac, char **av);
 /**
  * main - The beginning of monty program that replicates the stack
  * @ac: argument count
- * av: argument vector for the file being searched
- * 
+ * @av: argument vector for the file being searched
  * Return: success if properly executed
-*/
+ */
 int main(int ac, char **av)
 {
 	FILE *fd;
 	int i, j, line_number;
 	unsigned int value;
 	char buffer[SIZE], *token = NULL, *copy_token[SIZE];
-	stack_t* head = NULL;
+	stack_t *head = NULL;
 
-	/* Check if the argument passed is less than
+	/**
+	 * Check if the argument passed is less than
 	 * or greater than 2
 	 */
 	if (ac != 2)
 		failed_prog();
-	/* Since the arguments is one then open the file using
+	/**
+	 * Since the arguments is one then open the file using
 	 * fopen() and check if it fails.
 	 */
 	fd = fopen(av[1], "r");
@@ -52,7 +53,8 @@ int main(int ac, char **av)
 			i++;
 		}
 		copy_token[i] = NULL;
-		/* using a for loop to check if a word matches with the
+		/**
+		 * using a for loop to check if a word matches with the
 		 * push or pull keyword but its not yet implementing.
 		 */
 		value = 0, line_number = 0;
