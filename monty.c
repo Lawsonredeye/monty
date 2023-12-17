@@ -83,6 +83,8 @@ int main(int ac, char **av)
 				pop(&head, line_number);
 			else if (strcmp(copy_token[j], "add") == 0)
 				add(&head, line_number);
+			else if (strcmp(copy_token[j], "sub") == 0)
+				sub(&head, line_number);
 			else if (strcmp(copy_token[j], "swap") == 0)
 				swap(&head, line_number);
 			else if (strcmp(copy_token[j], "nop") == 0)
