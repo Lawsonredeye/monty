@@ -94,7 +94,7 @@ int main(int ac, char **av)
 	 * memory or close the file using fclose()
 	 */
 	fclose(fd);
-	free_all(&(*head));
+	free_all(&head);
 	free(*copy_token);
 	return (0);
 }
