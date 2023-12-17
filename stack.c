@@ -68,3 +68,37 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * swap - swaps the top two elements of the stack.
+ * @stack: head node to be used
+ * @line_number: current line number from program
+ * Return: Nothing (void)
+*/
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tempA, *tempB, *tempC;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (*stack != NULL && (*stack)->next != NULL)
+	{
+		tempA = *stack;
+		tempB = (*stack)->next;
+		tempC = tempB->next;
+		tempB->next = tempA;
+		tempB->prev = NULL;
+		*stack = tempB;
+		tempA->next = tempC;
+		tempA->prev = tempB;
+		tempC->prev = tempA;
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
