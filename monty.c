@@ -77,15 +77,15 @@ int main(int ac, char **av)
 				push(&head, value);
 			}
 			else if (strcmp(copy_token[j], "pall") == 0)
-			{
 				pall(&head, value);
-			}
 			else if (strcmp(copy_token[j], "pint") == 0)
 				pint(&head, line_number);
 			else if (strcmp(copy_token[j], "pop") == 0)
 				pop(&head, line_number);
 			else if (strcmp(copy_token[j], "add") == 0)
 				add(&head, line_number);
+			else if (strcmp(copy_token[j], "swap") == 0)
+				swap(&head, line_number);
 		}
 	}
 	/**
