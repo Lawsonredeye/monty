@@ -27,14 +27,14 @@ void sub(stack_t **stack, unsigned int line_number)
 			malloc_failed();
 		}
 		/* manually move through the head node to sub the element*/
-			value = temp->n;
-			pop(&(*stack), line_number);
-			temp = *stack;
-            value2 = temp->n;
-            pop(&(*stack), line_number);
-			temp = *stack;
-            value2 -= value;
-		
+		value = temp->n;
+		pop(&(*stack), line_number);
+		temp = *stack;
+		value2 = temp->n;
+		pop(&(*stack), line_number);
+		temp = *stack;
+		value2 -= value;
+
 		temp2->n = value2;
 		temp2->prev = NULL;
 		temp2->next = *stack;
