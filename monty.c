@@ -44,10 +44,7 @@ int main(int ac, char **av)
 		{
 			copy_token[i] = malloc(strlen(token) + 1);
 			if (copy_token[i] == NULL)
-			{
-				fprintf(stderr, "Error: malloc failed\n");
-				exit(EXIT_FAILURE);
-			}
+				malloc_failed();
 			strcpy(copy_token[i], token);
 			token = strtok(NULL, " \n\t");
 			i++;
@@ -72,6 +69,7 @@ int main(int ac, char **av)
 				if (copy_token[j + 1] == NULL)
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					free(*copy_token);
 					exit(EXIT_FAILURE);
 				}
 				value = atoi(copy_token[j + 1]);
@@ -96,6 +94,7 @@ int main(int ac, char **av)
 	 * memory or close the file using fclose()
 	 */
 	fclose(fd);
+	free_all(&(*head));
 	free(*copy_token);
 	return (0);
 }
