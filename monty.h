@@ -42,6 +42,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 void failed_prog(void);
 void failure(unsigned int line_number);
 void free_all(stack_t **stack);
