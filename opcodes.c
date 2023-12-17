@@ -54,14 +54,20 @@ void add(stack_t **stack, unsigned int line_number)
 	int i, value = 0;
 
 	if (*stack == NULL)
+	{
+		free_all(&(*stack));
 		failure(line_number);
+	}
 	/* check if the stack is not less than 2 nodes*/
 	if (*stack != NULL && (*stack)->next != NULL)
 	{
 		temp = *stack;
 		temp2 = malloc(sizeof(stack_t));
 		if (temp2 == NULL)
+		{
+			free_all(&(*stack));
 			malloc_failed();
+		}
 		/* traverse through the head node to add the element*/
 		for (i = 0; i < 2; i++)
 		{
@@ -77,6 +83,24 @@ void add(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, " L%d: can't add, stack too short\n", line_number);
+		free_all(&(*stack));
 		exit(EXIT_FAILURE);
+	}
+}
+
+/**
+ * free_all - frees stack in the case of a forced exit status
+ * @stack: stack to be freed
+ * Return: Nothing
+*/
+void free_all(stack_t **stack)
+{
+	stack_t *current = *stack, *temp;
+
+	while (current != NULL)
+	{
+		temp = current->next;
+		free(current);
+		current = temp;
 	}
 }
