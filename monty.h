@@ -45,4 +45,5 @@ void swap(stack_t **stack, unsigned int line_number);
 void failed_prog(void);
 void failure(unsigned int line_number);
 void free_all(stack_t **stack);
+void malloc_failed(void);
 #endif
