@@ -61,6 +61,7 @@ int main(int ac, char **av)
 		if (copy_token[0] == NULL)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free(*copy_token);
 			exit(EXIT_FAILURE);
 		}
 		for (j = 0, line_number = 1; copy_token[j] != NULL; j++)
@@ -86,6 +87,8 @@ int main(int ac, char **av)
 				add(&head, line_number);
 			else if (strcmp(copy_token[j], "swap") == 0)
 				swap(&head, line_number);
+			else if (strcmp(copy_token[j], "nop") == 0)
+				continue;
 		}
 	}
 	/**
