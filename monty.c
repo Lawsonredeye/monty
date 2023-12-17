@@ -84,6 +84,8 @@ int main(int ac, char **av)
 				pint(&head, line_number);
 			else if (strcmp(copy_token[j], "pop") == 0)
 				pop(&head, line_number);
+			else if (strcmp(copy_token[j], "add") == 0)
+				add(&head, line_number);
 		}
 	}
 	/**
